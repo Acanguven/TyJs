@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="712c26e3-1e15-4048-a693-b04decaa9baf" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/array.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/array.js" afterPath="$PROJECT_DIR$/src/lib/array.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ty.js" afterPath="$PROJECT_DIR$/src/ty.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/ty.js" afterPath="$PROJECT_DIR$/test/ty.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -319,7 +315,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497416301966</updated>
-      <workItem from="1497416303202" duration="17084000" />
+      <workItem from="1497416303202" duration="17189000" />
     </task>
     <task id="LOCAL-00001" summary="fixed readme">
       <created>1497429731790</created>
@@ -342,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497429812352</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="framework instance added, exposing modules to test env done">
+      <created>1497441522803</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1497441522803</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -378,7 +381,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17084000" />
+    <option name="totallyTimeSpent" value="17189000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -419,7 +422,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed readme" />
     <MESSAGE value="fixed readme, gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed readme, gitignore" />
+    <MESSAGE value="framework instance added, exposing modules to test env done" />
+    <option name="LAST_COMMIT_MESSAGE" value="framework instance added, exposing modules to test env done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
