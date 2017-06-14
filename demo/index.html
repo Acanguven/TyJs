@@ -20,25 +20,19 @@
             }
         ];
 
-        /*var tyInstance = ty.load(['arrayUtils','abTesting', 'browser']).loaded(function(loadedModuleName){
-            if(loadedModuleName == 'arrayUtils'){
-                var index = tyInstance.arrayUtils.findIndexByProp(exampleArray, 'value', 5);
-                console.log(index);
-
-                var value = tyInstance.arrayUtils.findByProp(exampleArray, 'name', 'Web Team');
-                console.log(value);
+        var tyInstance = ty.new();
+        tyInstance.loadSync([]);
+        tyInstance.load(['array','browser']).onLoad(function (moduleName) {
+            if(moduleName == 'array'){
+                var index = tyInstance.array.findIndexByProp(exampleArray, 'value', 7);
             }
 
-            if(loadedModuleName == 'abTesting'){
-                console.log(tyInstance.abTesting.getAbTestValue())
-            }
+            console.log(tyInstance);
 
-            if(loadedModuleName == 'browser'){
-                console.log(tyInstance.browser.browserName);
+            if(moduleName == 'browser'){
+                console.log(tyInstance.browser);
             }
-        }).error(function(moduleName){
-            console.error(moduleName);
-        });*/
+        });
     </script>
 </head>
 <body>

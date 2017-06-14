@@ -1,9 +1,10 @@
 describe("Array Module", function() {
+    var module = new window[ty.Constants.testClassExposePrefix + 'array'];
+
     it("Expect module to be exposed to window", function() {
         expect(module).toBeDefined();
     });
 
-    var module = new window[ty.Constants.testClassExposePrefix + 'array'];
     var testArray = [
         {
             name: "Ankara",

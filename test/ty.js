@@ -31,23 +31,86 @@ describe("TY", function() {
 
 describe("TyInstance", function () {
     it("It should load modules by constructor parameter", function () {
-        ty.tyCacheService.cache('constructorModule', function(){});
+        /*ty.tyCacheService.cache('constructorModule', function(){});
         var newTyIstance = ty.new(['constructorModule']);
         expect(typeof newTyIstance.constructorModule).toBe('object');
-        ty.tyCacheService.clearAll();
+        ty.tyCacheService.clearAll();*/
+        //todo find a way to test async method
     });
 
-   it("It should load modules from cache service", function () {
+    it("It should load modules from cache service", function () {
        var newTyIstance = ty.new();
        ty.tyCacheService.cache('testModule', function(){});
-       var remainingModules = newTyIstance.loadModuleListFromCache(['testModule']);
+       var remainingModules = newTyIstance.constructModuleListFromCache(['testModule']);
        expect(remainingModules).toEqual([]);
-   });
+    });
 
     it("It should load construct class on instance", function () {
         var newTyIstance = ty.new();
         newTyIstance.constructModule('exampleModule',function(){});
         expect(typeof newTyIstance.exampleModule).toBe('object');
+    });
+
+    it("It should register onload event", function () {
+        var newTyIstance = ty.new();
+        newTyIstance.onLoad(function(){
+            expect(true).toEqual(true);
+        });
+        newTyIstance.fireEvent('anyModule', ty.Constants.moduleEvents.success);
+    });
+
+    it("It should register onTimeoutEvent event", function () {
+        var newTyIstance = ty.new();
+        newTyIstance.onTimeout(function(){
+            expect(true).toEqual(true);
+        });
+        newTyIstance.fireEvent('anyModule', ty.Constants.moduleEvents.timeout);
+    });
+
+
+    it("It should register onError event", function () {
+        var newTyIstance = ty.new();
+        newTyIstance.onError(function(){
+            expect(true).toEqual(true);
+        });
+        newTyIstance.fireEvent('anyModule', ty.Constants.moduleEvents.error);
+    });
+
+    it("It should fire events", function () {
+        var newTyIstance = ty.new();
+        //todo jasmine inspector track for fireEvent
+    });
+});
+
+describe("TyModuleWaiterQueue", function(){
+    var newWaiterObject = new (function () {
+        this.fireEvent = function(moduleName){
+            if(moduleName == 'simpleModule'){
+                expect(true).toEqual(true);
+            }
+        };
+        this.constructModule = function(){};
+    })();
+
+    it("It should register module and instance as waiter", function () {
+        ty.tyHttpService.moduleWaiterList.waiterList = [];
+        ty.tyHttpService.moduleWaiterList.register('simpleModule', newWaiterObject);
+        expect(ty.tyHttpService.moduleWaiterList.waiterList.length > 0).toEqual(true);
+    });
+
+    it("It should fire event of registered object", function () {
+        ty.tyHttpService.moduleWaiterList.waiterList = [];
+        ty.tyHttpService.moduleWaiterList.register('simpleModule2', newWaiterObject);
+        ty.tyHttpService.moduleWaiterList.notifyEvent('simpleModule2', ty.Constants.moduleEvents.success);
+    });
+
+    it("It should clear waiterList", function () {
+        ty.tyHttpService.moduleWaiterList.register('simpleModule2',newWaiterObject);
+        ty.tyHttpService.moduleWaiterList.register('simpleModule2',newWaiterObject);
+        ty.tyHttpService.moduleWaiterList.register('simpleModule2',newWaiterObject);
+        ty.tyHttpService.moduleWaiterList.notifyEvent('simpleModule2', ty.Constants.moduleEvents.success);
+        ty.tyHttpService.moduleWaiterList.notifyEvent('simpleModule2', ty.Constants.moduleEvents.success);
+        expect(ty.tyHttpService.moduleWaiterList.waiterList.length == 0).toEqual(true);
     });
 });
 
@@ -128,5 +191,12 @@ describe("TyHttpLoader", function(){
         ty.tyHttpService.request('testModule');
         var isDownloading = ty.tyHttpService.request('testModule');
         expect(isDownloading).toEqual(false);
+    });
+
+    it("It should register module to waiter queue", function() {
+        var instance = new (function exampleClass() {})();
+        ty.tyHttpService.moduleWaiterList.waiterList = [];
+        ty.tyHttpService.request('Test', false, instance);
+        expect(ty.tyHttpService.moduleWaiterList.waiterList.length > 0).toEqual(true);
     });
 });
