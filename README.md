@@ -34,11 +34,13 @@ Write once use everywhere
 ### Cache Loading
 
 ```javascript
-    var tyInstance = ty.new().load(['array','browser']); //load is async but array and browser coming from cache so they are directly injected. It also fires events
+    //load is async but if modules coming from cache so they are directly injected and fires event
+    //Whenever any module is loaded it gets cached
+    var tyInstance = ty.new().load(['array','browser']); 
     console.log(tyInstance.array) //array module defined
 ```
 
-### Events (OnLoad, OnError, OnTimeout)
+### Events (OnLoad, OnError, OnTimeout, onLoadedAll)
 
 ```javascript
     var tyInstance = ty.new().onLoad(function(moduleName){
