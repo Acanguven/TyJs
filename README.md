@@ -1,2 +1,3 @@
-##TyJs 
+## TyJs
+ 
 Write once use everywhere
