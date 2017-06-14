@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="712c26e3-1e15-4048-a693-b04decaa9baf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/browser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/index.html" afterPath="$PROJECT_DIR$/demo/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/browser.js" afterPath="$PROJECT_DIR$/src/lib/browser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ty.js" afterPath="$PROJECT_DIR$/src/ty.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/array.js" afterPath="$PROJECT_DIR$/test/array.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/ty.js" afterPath="$PROJECT_DIR$/test/ty.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,6 +19,40 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/README.md">
+                <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                  <state split_layout="SPLIT">
+                    <first_editor relative-caret-position="801">
+                      <caret line="74" column="3" lean-forward="false" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="3" />
+                      <folding>
+                        <marker date="1497453476729" expanded="true" signature="952:1051" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="952:1052" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="989:1045" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="989:1051" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="1154:1238" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="1195:1232" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="1328:1681" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="1485:1538" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="1528:1538" ph="{...}" />
+                        <marker date="1497453476729" expanded="true" signature="1603:1673" ph="{...}" />
+                      </folding>
+                    </first_editor>
+                    <second_editor />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.46090534">
@@ -28,8 +61,8 @@
           <file leaf-file-name="ty.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ty.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="249">
-                  <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+                <state relative-caret-position="2669">
+                  <caret line="159" column="22" lean-forward="true" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#51#0" expanded="false" />
                   </folding>
@@ -40,14 +73,14 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/demo/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
-                  <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="36" />
+                <state relative-caret-position="258">
+                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="array.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="array.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/lib/array.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="34">
@@ -59,11 +92,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="browser.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="browser.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/lib/browser.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+                <state relative-caret-position="68">
+                  <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#51#0" expanded="false" />
                   </folding>
@@ -78,33 +111,33 @@
           <file leaf-file-name="ty.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test/ty.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="37" column="46" lean-forward="false" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
+                <state relative-caret-position="714">
+                  <caret line="190" column="47" lean-forward="true" selection-start-line="190" selection-start-column="47" selection-end-line="190" selection-end-column="47" />
                   <folding>
                     <element signature="e#79#949#0" expanded="false" />
+                    <element signature="e#988#2887#0" expanded="false" />
                     <element signature="e#2933#4455#0" expanded="false" />
                     <element signature="e#4496#6241#0" expanded="false" />
-                    <element signature="e#6280#7961#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="array.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="array.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/array.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="74" />
+                <state relative-caret-position="85">
+                  <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="browser.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="browser.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test/browser.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="5" column="76" lean-forward="true" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
+                <state relative-caret-position="68">
+                  <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#51#0" expanded="false" />
                   </folding>
@@ -142,15 +175,15 @@
         <option value="$PROJECT_DIR$/src/exampleModule.js" />
         <option value="$PROJECT_DIR$/test/exampleModule.test.js" />
         <option value="$PROJECT_DIR$/karma.conf.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/lib/array.js" />
-        <option value="$PROJECT_DIR$/test/array.js" />
-        <option value="$PROJECT_DIR$/test/browser.js" />
-        <option value="$PROJECT_DIR$/test/ty.js" />
-        <option value="$PROJECT_DIR$/src/ty.js" />
         <option value="$PROJECT_DIR$/src/lib/browser.js" />
+        <option value="$PROJECT_DIR$/test/browser.js" />
+        <option value="$PROJECT_DIR$/src/ty.js" />
+        <option value="$PROJECT_DIR$/test/ty.js" />
         <option value="$PROJECT_DIR$/demo/index.html" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/test/array.js" />
       </list>
     </option>
   </component>
@@ -391,7 +424,7 @@
       <option name="presentableId" value="Default" />
       <updated>1497416301966</updated>
       <workItem from="1497416303202" duration="17414000" />
-      <workItem from="1497441801319" duration="6769000" />
+      <workItem from="1497441801319" duration="10471000" />
     </task>
     <task id="LOCAL-00001" summary="fixed readme">
       <created>1497429731790</created>
@@ -428,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497441575844</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="improved ty, added http calls, events, registers">
+      <created>1497448714056</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1497448714056</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -464,7 +504,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24183000" />
+    <option name="totallyTimeSpent" value="27885000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -484,7 +524,7 @@
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19501625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15384616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14951245" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -507,7 +547,8 @@
     <MESSAGE value="fixed readme, gitignore" />
     <MESSAGE value="framework instance added, exposing modules to test env done" />
     <MESSAGE value="Added test and idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test and idea" />
+    <MESSAGE value="improved ty, added http calls, events, registers" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved ty, added http calls, events, registers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -550,9 +591,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#79#949#0" expanded="false" />
+            <element signature="e#988#2887#0" expanded="false" />
             <element signature="e#2933#4455#0" expanded="false" />
             <element signature="e#4496#6241#0" expanded="false" />
-            <element signature="e#6280#7961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -573,16 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="796">
@@ -598,11 +629,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/array.js">
+    <entry file="file://$PROJECT_DIR$/src/lib/browser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="74" />
+        <state relative-caret-position="68">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/browser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="190" column="47" lean-forward="true" selection-start-line="190" selection-start-column="47" selection-end-line="190" selection-end-column="47" />
+          <folding>
+            <element signature="e#79#949#0" expanded="false" />
+            <element signature="e#988#2887#0" expanded="false" />
+            <element signature="e#2933#4455#0" expanded="false" />
+            <element signature="e#4496#6241#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2669">
+          <caret line="159" column="22" lean-forward="true" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -616,54 +690,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/ty.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="37" column="46" lean-forward="false" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
-          <folding>
-            <element signature="e#79#949#0" expanded="false" />
-            <element signature="e#2933#4455#0" expanded="false" />
-            <element signature="e#4496#6241#0" expanded="false" />
-            <element signature="e#6280#7961#0" expanded="false" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="801">
+            <caret line="74" column="3" lean-forward="false" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="3" />
+            <folding>
+              <marker date="1497453476729" expanded="true" signature="952:1051" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="952:1052" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="989:1045" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="989:1051" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="1154:1238" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="1195:1232" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="1328:1681" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="1485:1538" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="1528:1538" ph="{...}" />
+              <marker date="1497453476729" expanded="true" signature="1603:1673" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ty.js">
+    <entry file="file://$PROJECT_DIR$/test/array.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="36" />
+        <state relative-caret-position="85">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/browser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="76" lean-forward="true" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/browser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

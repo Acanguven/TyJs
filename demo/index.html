@@ -20,19 +20,24 @@
             }
         ];
 
-        var tyInstance = ty.new();
-        tyInstance.loadSync([]);
-        tyInstance.load(['array','browser']).onLoad(function (moduleName) {
+        var tyInstance = ty.new().onLoad(moduleLoaded).loadSync(['array']);
+
+
+
+        console.log(tyInstance.array);
+        console.log(tyInstance.browser);
+        function moduleLoaded(moduleName){
+            console.log(tyInstance);
             if(moduleName == 'array'){
                 var index = tyInstance.array.findIndexByProp(exampleArray, 'value', 7);
+                console.log(index);
             }
 
-            console.log(tyInstance);
 
             if(moduleName == 'browser'){
                 console.log(tyInstance.browser);
             }
-        });
+        }
     </script>
 </head>
 <body>

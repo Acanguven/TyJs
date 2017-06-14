@@ -181,7 +181,7 @@ describe("TyHttpLoader", function(){
         expect(script).not.toEqual(null);
     });
 
-    it("It should check if module is pending for download", function() {
+    it("It should check if async module is pending for download", function() {
         ty.tyHttpService.request('testModule');
         var isPending = ty.tyHttpService.isModulePending('testModule');
         expect(isPending).toEqual(true);
@@ -191,6 +191,12 @@ describe("TyHttpLoader", function(){
         ty.tyHttpService.request('testModule');
         var isDownloading = ty.tyHttpService.request('testModule');
         expect(isDownloading).toEqual(false);
+    });
+
+    it("It should override pending module if sync", function() {
+        ty.tyHttpService.request('testModule');
+        var xhr = ty.tyHttpService.request('testModule', true);
+        expect(typeof xhr).toEqual('object');
     });
 
     it("It should register module to waiter queue", function() {

@@ -150,16 +150,16 @@
 
         this.request = function(moduleName, sync, instance){
             this.moduleWaiterList.register(moduleName, instance);
-            if(!this.isModulePending(moduleName)){
-                this.pendingHttpModuleList.push(moduleName);
-                var src = this.cdnLinkBuilder(moduleName);
-                if(sync){
-                    return this.syncRequest(src, moduleName);
-                }else{
-                    return this.asyncRequest(src, moduleName);
-                }
+            var src = this.cdnLinkBuilder(moduleName);
+            if(sync){
+                return this.syncRequest(src, moduleName);
             }else{
-                return false;
+                if(!this.isModulePending(moduleName)){
+                    this.pendingHttpModuleList.push(moduleName);
+                    return this.asyncRequest(src, moduleName);
+                }else{
+                    return false;
+                }
             }
         };
 

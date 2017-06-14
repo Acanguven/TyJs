@@ -4,7 +4,6 @@
 
 ty.module('browser', function() {
     var tyInstance = ty.new().loadSync(['array']);
-    console.log(tyInstance);
 
     this.isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
     this.isFirefox = typeof InstallTrigger !== 'undefined';
