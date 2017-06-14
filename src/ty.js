@@ -3,6 +3,12 @@
  */
 
 (function () {
+    var Constants = {
+        cachePrefix: '_',
+        testClassExposePrefix: '_',
+        karmaTestHtml: 'context.html'
+    };
+
     function Ty(){
         this.tyHttpService = new TyHttpLoader();
         this.tyCacheService = new TyScriptCache();
@@ -10,16 +16,45 @@
 
         this.module = function(moduleName, moduleClass){
             this.tyCacheService.cache(moduleName, moduleClass);
+
+            if(this.isTestEnv()){
+                console.info('Module ' + moduleName + ' exposed to window on test environment.');
+                window[Constants.testClassExposePrefix + moduleName] = moduleClass;
+            }
         };
 
         this.new = function(moduleList){
             return new TyInstance(moduleList);
-        }
+        };
+
+        this.isTestEnv = function(){
+            return document.URL.indexOf(Constants.karmaTestHtml) > -1;
+        };
     }
 
     function TyInstance(moduleList){
         this.load = function(moduleList){
+            var remainingModules = this.loadModuleListFromCache(moduleList);
+        };
 
+        this.loadModuleListFromCache = function(moduleList){
+            var length = moduleList.length;
+            while(length--){
+                var moduleClass = ty.tyCacheService.get(moduleList[length]);
+                if(!!moduleClass){
+                    this.constructModule(moduleList[length], moduleClass);
+                    moduleList.splice(length, 1);
+                }
+            }
+            return moduleList;
+        };
+
+        this.constructModule = function (moduleName, moduleClass) {
+            this[moduleName] = new moduleClass();
+        };
+
+        if(!!moduleList){
+            this.load(moduleList);
         }
     }
 
@@ -88,27 +123,25 @@
     }
 
     function TyScriptCache(){
-        var cachePrefix = "_";
-
         this.cache = function(moduleName, moduleClass){
-            this[cachePrefix + moduleName] = moduleClass;
+            this[Constants.cachePrefix + moduleName] = moduleClass;
         };
 
         this.exists = function(moduleName){
-            return(!!this[cachePrefix + moduleName]);
+            return(!!this[Constants.cachePrefix + moduleName]);
         };
 
         this.get = function(moduleName){
-            return this[cachePrefix + moduleName];
+            return this[Constants.cachePrefix + moduleName];
         };
 
         this.clear = function(moduleName){
-            delete this[cachePrefix + moduleName];
+            delete this[Constants.cachePrefix + moduleName];
         };
 
         this.clearAll = function(){
             for(var module in  this){
-                if(module.indexOf(cachePrefix) == 0){
+                if(module.indexOf(Constants.cachePrefix) == 0){
                     delete this[module];
                 }
             }
@@ -116,8 +149,8 @@
 
         this.getCachedModuleNames = function(){
             return Object.keys(this).reduce(function(list, prop){
-                if(prop.indexOf(cachePrefix) == 0){
-                    list.push(prop.replace(cachePrefix,''));
+                if(prop.indexOf(Constants.cachePrefix) == 0){
+                    list.push(prop.replace(Constants.cachePrefix,''));
                 }
                 return list;
             }, []);
@@ -125,4 +158,5 @@
     }
 
     window.ty = new Ty();
+    window.ty.Constants = Constants;
 })();

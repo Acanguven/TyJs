@@ -7,6 +7,16 @@ describe("TY", function() {
         expect(ty).toBeDefined();
     });
 
+    it("TY debug mode should be true", function() {
+        expect(ty.isTestEnv()).toEqual(true);
+    });
+
+    it("Ty Modules should be exposed to test global environment", function() {
+        ty.module('moduleNameDeneme', function(){});
+        expect(typeof window[ty.Constants.testClassExposePrefix+'moduleNameDeneme']).toBe('function');
+        ty.tyCacheService.clearAll();
+    });
+
     it("Ty should register to cache module", function() {
         ty.module('moduleName', function(){});
         expect(ty.tyCacheService.exists('moduleName')).toEqual(true);
@@ -19,10 +29,32 @@ describe("TY", function() {
     });
 });
 
+describe("TyInstance", function () {
+    it("It should load modules by constructor parameter", function () {
+        ty.tyCacheService.cache('constructorModule', function(){});
+        var newTyIstance = ty.new(['constructorModule']);
+        expect(typeof newTyIstance.constructorModule).toBe('object');
+        ty.tyCacheService.clearAll();
+    });
+
+   it("It should load modules from cache service", function () {
+       var newTyIstance = ty.new();
+       ty.tyCacheService.cache('testModule', function(){});
+       var remainingModules = newTyIstance.loadModuleListFromCache(['testModule']);
+       expect(remainingModules).toEqual([]);
+   });
+
+    it("It should load construct class on instance", function () {
+        var newTyIstance = ty.new();
+        newTyIstance.constructModule('exampleModule',function(){});
+        expect(typeof newTyIstance.exampleModule).toBe('object');
+    });
+});
+
 describe("TyScriptCache", function() {
     it("It should cache module", function() {
         ty.tyCacheService.cache('testModule', function(){});
-        expect(ty.tyCacheService['_testModule']).toBeDefined();
+        expect(ty.tyCacheService[ty.Constants.cachePrefix+'testModule']).toBeDefined();
     });
 
     it("It should return true if module exists", function() {
