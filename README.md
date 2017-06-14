@@ -38,7 +38,7 @@ Write once use everywhere
     console.log(tyInstance.array) //array module defined
 ```
 
-### Events (OnLoad)
+### Events (OnLoad, OnError, OnTimeout)
 
 ```javascript
     var tyInstance = ty.new().onLoad(function(moduleName){
