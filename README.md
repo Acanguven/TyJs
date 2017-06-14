@@ -28,7 +28,7 @@ Write once use everywhere
 ```javascript
     var tyInstance = ty.new(); //initialization line
     tyInstance.loadSync(['array','browser']); //Load sync cant be used with the initialization line.
-    console.log(tyInstance.array);
+    console.log(tyInstance.array); //defined
 ```
 
 ### Cache Loading
@@ -52,6 +52,20 @@ Write once use everywhere
 
 ```javascript
     ty.module('exampleModule', function(){
+        this.exampleMethod = function(){
+            return 'foo';
+        }
+    });
+```
+
+### Importing Modules Inside Modules
+
+```javascript
+    ty.module('exampleModule', function(){
+        var innerInstance = ty.new() 
+        innerInstance.loadSync(['array']); //Sync or async load
+        console.log(innerInstance.array) //array module defined;
+        
         this.exampleMethod = function(){
             return 'foo';
         }
