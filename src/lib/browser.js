@@ -3,7 +3,8 @@
  */
 
 ty.module('browser', function() {
-    var tyInstance = ty.new().loadSync(['array']);
+    var dep = ty.new();
+    dep.loadSync(['http']);
 
     this.isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
     this.isFirefox = typeof InstallTrigger !== 'undefined';

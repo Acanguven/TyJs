@@ -37,10 +37,20 @@
     }
 
     function TyInstance(moduleList){
+        var moduleStatusList = [];
+
         this.load = function(moduleList){
             var remainingModules = this.constructModuleListFromCache(moduleList);
             for(var x = 0; x < remainingModules.length; x++){
-                ty.tyHttpService.request(remainingModules[x], false, this);
+                if(typeof remainingModules[x] == 'object'){
+                    if(remainingModules[x].name){
+                        moduleStatusList.push(remainingModules[x].name);
+                        ty.tyHttpService.request(remainingModules[x].name, false, this, remainingModules[x].timeout);
+                    }
+                }else if(typeof remainingModules[x] == 'string'){
+                    moduleStatusList.push(remainingModules[x]);
+                    ty.tyHttpService.request(remainingModules[x], false, this);
+                }
             }
             return this;
         };
@@ -48,7 +58,16 @@
         this.loadSync = function(moduleList){
             var remainingModules = this.constructModuleListFromCache(moduleList);
             for(var x = 0; x < remainingModules.length; x++){
-                ty.tyHttpService.request(remainingModules[x], true, this);
+                if(typeof remainingModules[x] == 'object'){
+                    if(remainingModules[x].name){
+                        console.log('Unable to set timeout for sync request for module ' + remainingModules[x].name + ', loading without timeout');
+                        moduleStatusList.push(remainingModules[x].name);
+                        ty.tyHttpService.request(remainingModules[x].name, true, this);
+                    }
+                }else if(typeof remainingModules[x] == 'string'){
+                    moduleStatusList.push(remainingModules[x]);
+                    ty.tyHttpService.request(remainingModules[x], true, this);
+                }
             }
             return this;
         };
@@ -58,6 +77,7 @@
             while(length--){
                 var moduleClass = ty.tyCacheService.get(moduleList[length]);
                 if(!!moduleClass){
+                    moduleStatusList.push(moduleList[length]);
                     this.constructModule(moduleList[length], moduleClass);
                     this.fireEvent(moduleList[length], Constants.moduleEvents.success);
                     moduleList.splice(length, 1);
@@ -70,9 +90,6 @@
             this[moduleName] = new moduleClass();
         };
 
-        if(!!moduleList){
-            this.load(moduleList);
-        }
 
         var loadEvent = null;
         this.onLoad = function(cb){
@@ -104,18 +121,33 @@
                     if(!!loadEvent){
                         loadEvent(moduleName);
                     }
+                    this.checkAllLoad();
                     break;
                 case Constants.moduleEvents.error:
+                    this.checkAllLoad(moduleName);
                     if(!!onErrorEvent){
                         onErrorEvent(moduleName);
                     }
                     break;
                 case Constants.moduleEvents.timeout:
+                    this.checkAllLoad(moduleName);
                     if(!!onTimeoutEvent){
                         onTimeoutEvent(moduleName);
                     }
                     break;
             }
+        };
+
+        this.checkAllLoad = function(moduleName){
+            var moduleStatusIndex = moduleStatusList.indexOf(moduleName);
+            moduleStatusList.splice(moduleStatusIndex, 1);
+            if(moduleStatusList.length == 0 && !!onLoadAllEvent){
+                onLoadAllEvent();
+            }
+        };
+
+        if(!!moduleList){
+            this.load(moduleList);
         }
     }
 
@@ -133,7 +165,7 @@
             var length = this.waiterList.length;
             while(length--){
                 if(this.waiterList[length].moduleName == moduleName){
-                    if(eventType == Constants.moduleEvents.success){
+                    if(eventType == Constants.moduleEvents.success) {
                         var moduleClass = ty.tyCacheService.get(moduleName);
                         this.waiterList[length].instance.constructModule(moduleName, moduleClass);
                     }
@@ -148,7 +180,7 @@
         this.pendingHttpModuleList = [];
         this.moduleWaiterList = new TyModuleWaiterQueue();
 
-        this.request = function(moduleName, sync, instance){
+        this.request = function(moduleName, sync, instance, timeout){
             this.moduleWaiterList.register(moduleName, instance);
             var src = this.cdnLinkBuilder(moduleName);
             if(sync){
@@ -156,7 +188,7 @@
             }else{
                 if(!this.isModulePending(moduleName)){
                     this.pendingHttpModuleList.push(moduleName);
-                    return this.asyncRequest(src, moduleName);
+                    return this.asyncRequest(src, moduleName, timeout);
                 }else{
                     return false;
                 }
@@ -177,14 +209,16 @@
                 }
             };
             xhrObj.onerror = function(){
-
+                ty.tyHttpService.moduleWaiterList.notifyEvent(moduleName, Constants.moduleEvents.error);
             };
             xhrObj.send();
             return xhrObj;
         };
 
-        this.asyncRequest = function(src, moduleName){
+        this.asyncRequest = function(src, moduleName, timeout){
             var ready = false;
+            var timedOut = false;
+            var error = false;
             var scriptElement = document.createElement('script');
             scriptElement.type = 'text/javascript';
             scriptElement.async = true;
@@ -196,8 +230,19 @@
                 }
             };
             scriptElement.onerror = function () {
-
+                error = true;
+                if(!timedOut){
+                    ty.tyHttpService.moduleWaiterList.notifyEvent(moduleName, Constants.moduleEvents.error);
+                }
             };
+            if(!!timeout){
+                setTimeout(function(){
+                    if(!ready && !error){
+                        timedOut = true;
+                        ty.tyHttpService.moduleWaiterList.notifyEvent(moduleName, Constants.moduleEvents.timeout);
+                    }
+                }, timeout);
+            }
             document.getElementsByTagName('head')[0].appendChild(scriptElement);
         };
 

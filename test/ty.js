@@ -50,7 +50,7 @@ describe("TyInstance", function () {
         newTyIstance.constructModule('exampleModule',function(){});
         expect(typeof newTyIstance.exampleModule).toBe('object');
     });
-
+    //todo bu kısım valid bir unit test olmayabilir. Async kurgulamak lazım.
     it("It should register onload event", function () {
         var newTyIstance = ty.new();
         newTyIstance.onLoad(function(){
@@ -79,6 +79,14 @@ describe("TyInstance", function () {
     it("It should fire events", function () {
         var newTyIstance = ty.new();
         //todo jasmine inspector track for fireEvent
+    });
+
+    it("It should fire loadedAll event", function () {
+        var newTyIstance = ty.new();
+        newTyIstance.onLoadAll(function(){
+            expect(true).toEqual(true);
+        });
+        newTyIstance.load(['array', 'browser']);
     });
 });
 

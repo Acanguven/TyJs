@@ -21,17 +21,21 @@
         ];
 
         var tyInstance = ty.new();
-        tyInstance.loadSync(['array']);
 
-        var index = tyInstance.array.findIndexByProp(exampleArray, 'value', 7);
-        console.log(index);
+        tyInstance.onLoad(function(moduleName){
+            //Handle loaded module without waiting others
+            console.log('loaded:' + moduleName);
+        }).onLoadAll(function (){
+            //All modules are ready to run. Browser module might not be defined as it has timeout
+            console.log(tyInstance);
+        }).onTimeout(function(moduleName){
+            //Browser module might be timed out.
+            console.info("Timeout:" + moduleName);
+        }).onError(function(moduleName){
+            //There is not module named err
+            console.error("Error:" + moduleName);
+        }).load(['err','array']);
 
-        tyInstance.load(['browser']).onLoad(moduleLoaded);
-        function moduleLoaded(moduleName){
-            if(moduleName == 'browser'){
-                console.log(tyInstance.browser);
-            }
-        }
     </script>
 </head>
 <body>

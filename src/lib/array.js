@@ -3,6 +3,9 @@
  */
 
 ty.module('array', function(){
+    this.dep = ty.new();
+    this.dep.loadSync(['browser']);
+
     this.findIndexByProp = function (arr, prop, value) {
         return arr.reduce(function(index, item, iterationIndex){
             if(item[prop] === value && index == -1){
