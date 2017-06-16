@@ -2,6 +2,41 @@
  
 Write once use everywhere
 
+## Demo
+
+```javascript
+    var exampleArray = [
+        {
+            name: 'Trendyol',
+            value: 10
+        },
+        {
+            name: 'Modagram',
+            value: 5
+        },
+        {
+            name: 'Web Team',
+            value: 7
+        }
+    ];
+
+    var tyInstance = ty.new();
+
+    tyInstance.onLoad(function(moduleName){
+        //Handle loaded module without waiting others
+        console.log('loaded:' + moduleName);
+    }).onLoadAll(function (){
+        //All modules are ready to run. Browser module might not be defined as it has timeout
+        console.log(tyInstance);
+    }).onTimeout(function(moduleName){
+        //Browser module might be timed out.
+        console.info("Timeout:" + moduleName);
+    }).onError(function(moduleName){
+        //There is not module named err
+        console.error("Error:" + moduleName);
+    }).load(['err','array']);
+```
+
 ## Usage
 
 ### Instance
