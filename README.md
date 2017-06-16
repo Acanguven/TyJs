@@ -28,6 +28,8 @@ Write once use everywhere
     }).onLoadAll(function (){
         //All modules are ready to run. Browser module might not be defined as it has timeout
         console.log(tyInstance);
+        tyInstance.arrayUtils.findIndexByProp(exampleArray, 'value', 5); // -> 1
+        tyInstance.arrayUtils.findByProp(exampleArray, 'name', 'Web Team'); // -> { name: 'Web Team', value:7 }
     }).onTimeout(function(moduleName){
         //Browser module might be timed out.
         console.info("Timeout:" + moduleName);
